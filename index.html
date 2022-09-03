@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css framwork tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>Megado News</title>
-</head>
-<body>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- title -->
+    <title>Mega News</title>
+  </head>
+  <body class="bg-[#F6F6F6]">
     <!-- header start  -->
     <header class="container mx-auto">
-        <nav class="flex   text-white items-center h-[60px]">
-            <a class="mr-2 bg-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold" href="#home">News</a>
-            <a class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold" href="#home">News</a>
-            <a class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold" href="#home">News</a>
-           
-            
-            <a class="bg-[#5D5FEF] ml-auto rounded-[4px] p-[8px] px-6 font-bold" href="#home">News</a>
-            <a class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold" href="#home">Blog</a> 
-        </nav>
-        <hr class="h-[1px] bg-[#CDCDCD]">
+      <nav class="flex text-white items-center h-[60px]">
+        <a
+          class="mr-2 bg-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold"
+          href="#home"
+          >Mega</a
+        >
+        <a
+          class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold"
+          href="#home"
+          >News</a
+        >
+        <a
+          class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold"
+          href="#home"
+          >News</a
+        >
+
+        <a
+          class="bg-[#5D5FEF] ml-auto rounded-[4px] p-[8px] px-6 font-bold"
+          href="#home"
+          >News</a
+        >
+        <a
+          class="mr-2 text-[#5D5FEF] rounded-[4px] p-[8px] px-6 font-bold"
+          href="#home"
+          >Blog</a
+        >
+      </nav>
     </header>
+    <hr class="h-[1px] my-[20px] bg-[#CDCDCD]" />
     <!-- header end -->
-    <section class="container mx-auto" id="category">
- 
+    <!-- category section start -->
+    <section
+      class="container flex justify-between mx-auto"
+      id="category"
+    ></section>
+    <!-- category section end -->
+    <!-- items result section start -->
+    <section class="container mx-auto pt-6">
+      <div class="w-full p-6 bg-white" id="items-result"></div>
     </section>
-    
+    <!-- items result section end -->
+    <section>
+        
+    </section>
+
     <script src="./js/app.js"></script>
-</body>
+  </body>
 </html>
