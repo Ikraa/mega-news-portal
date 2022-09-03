@@ -48,9 +48,9 @@ const displayCategoryCard=(data)=>{
 
  
  data.map(card=>{
-  console.log(card)
+  
          const div=document.createElement('div')
-         console.log(typeof card._id)
+        
          div.innerHTML=`
                   <div class="card mb-[25px] lg:card-side p-5 bg-[#FFFFFF]  shadow-xl">
               <img class="h-[300px] w-[244px] object-cover mr-[40px]" src=${card.image_url} alt="Album">
@@ -100,6 +100,13 @@ const loadModalData=(news)=>{
   const {category_id,details,image_url,thumbnail_url,title,total_view}=news
   const {name,published_date,img}=news.author
   const {is_trending}=news.others_info
+  if(!name){
+    console.log("something")
+    const newsContainer=document.getElementById("modal-container").innerHTML=`
+    <h1 class="text-red-600 text-xl font-bold"> No Data Available</h1>
+    `
+    return;
+  }
   const newsContainer=document.getElementById("modal-container").innerHTML=`
   <div class="flex items-center justify-between">
 
