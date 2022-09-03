@@ -11,7 +11,7 @@ const loadCategory = (data) => {
     // console.log(item);
     const span = document.createElement("span");
     span.classList.add("text-[18px]", "text-[#858585]", "cursor-pointer");
-    span.innerHTML = `<span>${item.category_name}
+    span.innerHTML = `<span class="mr-3 mb-5 lg:mb-0 lg:mr-0 inline-block">${item.category_name}
         </span`;
     span.addEventListener("click", () => {
       document.getElementById("card-container").innerHTML=""
@@ -70,12 +70,12 @@ const displayCategoryCard=(data)=>{
         
          div.innerHTML=`
                   <div class="card mb-[25px] lg:card-side p-5 bg-[#FFFFFF]  shadow-xl">
-              <img class="h-[300px] w-[244px] object-cover mr-[40px]" src=${card.image_url} alt="Album">
+              <img class="h-[300px] mx-auto lg:mx-0 w-[244px] object-cover mr-[40px]" src=${card.image_url} alt="Album">
             <div class="card-body">
               <h2 class="card-title text-[#121221] font-bold text-[24px]">${card.title}</h2>
               <p class="text-[16px] text-ellipsis  my-4 text-[#949494] whitespace-pre-line">${card.details.slice(0,500)}${card.details.length>500?"...":""}</p>
               
-            <div class="footerWraper flex items-center justify-between">
+            <div class="footerWraper flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
                 <img class="h-[40px] w-[40px] rounded-full mr-[10px]" src=${card?.author?.img} /> 
                 <div> 
@@ -86,7 +86,7 @@ const displayCategoryCard=(data)=>{
 
                  <div class="text-[#515151] text-[18px] font-bold flex items-center"> <span><img class="h-[24px] mr-[12px] w-[24px]" src="./img/eye-icon.png" /></span><span class="text-[#515151] text-[18px] font-bold">${card.total_view}</span> </div>
                  <div >
-                 <label onClick="openModal('${card?._id}')" for="my-modal-6" class="btn modal-button">
+                 <label onClick="openModal('${card?._id}')" for="my-modal-6" class="mt-3 lg:mt-0 btn   px-5">
                  <img  class="mr-[14px]" src="./img/right-arrow.png" />
                  </label>
                  
