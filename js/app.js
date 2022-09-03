@@ -44,9 +44,9 @@ const displayCategoryData = (id,name) => {
 };
 
 const itemsResult =(items,name)=>{
+   document.getElementById("items-result").innerHTML=""
   const itemResult = document.getElementById("items-result");
  
-  console.log(items.data.length,name) 
   itemResult.innerHTML=`${items?.data?.length} items found for category ${name}`
   displayCategoryCard(items.data)
 }
@@ -57,6 +57,10 @@ const itemsResult =(items,name)=>{
 const displayCategoryCard=(data)=>{
  document.getElementById("card-container").innerHTML=""
  const cardContainer=document.getElementById("card-container")
+ if(data.length==0){
+  cardContainer.innerHTML=`<h1 class="text-red-500 font-bold text-xl text-center my-10">No news found </h1>`
+  return
+ }
  
 
  
