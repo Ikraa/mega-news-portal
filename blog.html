@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- tailwind css framwork link -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#F6F6F6]">
-    <h1 class="text-center lg:text-3xl text-center font-bold ">Question </h1>
+    <!-- link font awsome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <!-- Question & Answer Section -->
+  <body class="bg-[#F6F6F6]">
+    <h1 class="text-center lg:text-3xl text-center font-bold py-2">
+      Question & Answer
+    </h1>
 
-
-    <div class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl  lg:w-[70%] lg:mx-auto">
-        <h1 class="text-md my-2 font-semibold"><span class="text-xl font-bold">Question:</span>Difference between var , let and const? </h1>
-        <h1><span>Ans:</span>The main difference between var , let and const is   declaring the variable using var we can redeclare and reassign it .  If we use let to declare a variable then we can reassign it but we can't redeclare. On the other hand declare the variable using const then we can't Redeclaring and reassign it  . </h1>
-
+    <div
+      class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl lg:w-[70%] lg:mx-auto"
+    >
+      <h1 class="text-md my-2 font-semibold">
+        <span class="text-xl font-bold">Question:</span> Difference between var
+        , let and const?
+      </h1>
+      <h1>
+        <span class="font-bold">Ans:</span> The main difference between var ,
+        let and const is declaring the variable using var we can redeclare and
+        reassign it . If we use let to declare a variable then we can reassign
+        it but we can't redeclare. On the other hand declare the variable using
+        const then we can't Redeclaring and reassign it .
+      </h1>
     </div>
-    <div class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl  lg:w-[70%] lg:mx-auto">
-        <h1 class="text-md my-2 font-semibold"><span class="text-xl font-bold">Question:</span>What is the difference between arrow functions and regular functions?  </h1>
-        <h1><span>Ans: 
-            Regular functions created using function declarations or expressions are 'constructible' and 'callable'. Since regular functions are constructible, they can be called using the 'new' keyword. But the arrow functions are only 'callable' and not constructible.</span>   </h1>
-
+    <div
+      class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl lg:w-[70%] lg:mx-auto"
+    >
+      <h1 class="text-md my-2 font-semibold">
+        <span class="text-xl font-bold">Question:</span> What is the difference
+        between arrow functions and regular functions?
+      </h1>
+      <h1>
+        <span class="font-bold">Ans:</span> Regular functions created using
+        function declarations or expressions are 'constructible' and 'callable'.
+        Since regular functions are constructible, they can be called using the
+        'new' keyword. But the arrow functions are only 'callable' and not
+        constructible.
+      </h1>
     </div>
-    <div class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl  lg:w-[70%] lg:mx-auto">
-        <h1 class="text-md my-2 font-semibold"><span class="text-xl font-bold">Question:</span>Difference between map, forEach ,filter and find?</h1>
-        <h1><span><p>Ans:A.The map() method creates an entirely new array. 
-            The forEach() method does not create a new array based on the given array. The map() method returns the newly created array according to the provided callback function.</p>
-            <p>B. The forEach() method returns "undefined".The find() locates a specific entry by a predicate and returns it.</p>
-            <p>C. Methods like map() and filter() are about twice as fast as using forEach() and pushing to a new array to do the same thing. Using forEach() for multi-step manipulation is about twice as fast as chaining methods like filter() and map() .</p>
-            <p>D. And the difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value.</p>
-            <p>E. And the find() here is faster as filter() method relies on find() anyway.</p> </span></h1>
-
+    <div
+      class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl lg:w-[70%] lg:mx-auto"
+    >
+      <h1 class="text-md my-2 font-semibold">
+        <span class="text-xl font-bold">Question:</span>Difference between map,
+        forEach ,filter and find?
+      </h1>
+      <h1>
+        <p>
+          <span class="font-bold">Ans:</span>A.The map() method creates an
+          entirely new array. The forEach() method does not create a new array
+          based on the given array. The map() method returns the newly created
+          array according to the provided callback function.
+        </p>
+        <p>
+          B. The forEach() method returns "undefined".The find() locates a
+          specific entry by a predicate and returns it.
+        </p>
+        <p>
+          C. Methods like map() and filter() are about twice as fast as using
+          forEach() and pushing to a new array to do the same thing. Using
+          forEach() for multi-step manipulation is about twice as fast as
+          chaining methods like filter() and map() .
+        </p>
+        <p>
+          D. And the difference between forEach and filter is that forEach just
+          loop over the array and executes the callback but filter executes the
+          callback and check its return value.
+        </p>
+        <p>
+          E. And the find() here is faster as filter() method relies on find()
+          anyway.
+        </p>
+      </h1>
     </div>
-    
-</body>
+     <!-- End Question & Answer Section -->
+     
+      <!-- Back to Home Section -->
+    <div
+      class="bg-white lg:px-16 py-8 mb-4 rounded shadow-2xl lg:w-[70%] lg:mx-auto text-center"
+    >
+      <a
+        class="text-[#5D5FEF] rounded-[4px] lg:p-[8px] lg:px-6 font-bold text-xl"
+        href="/index.html#home"
+        ><i class="fa-solid fa-arrow-left"></i> Back</a
+      >
+    </div>
+  </body>
 </html>
