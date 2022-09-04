@@ -1,10 +1,12 @@
+// fetch data load for category news
+
 const fetchCategory = () => {
   fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((res) => res.json())
     .then((data) => loadCategory(data.data.news_category));
 };
 fetchCategory();
-
+//  function of load category for category news
 const loadCategory = (data) => {
   const category = document.getElementById("category");
   data.forEach((item) => {
@@ -14,8 +16,10 @@ const loadCategory = (data) => {
     span.innerHTML = `<span class="mr-3 mb-5 lg:mb-0 lg:mr-0 inline-block">${item.category_name}
         </span`;
     span.addEventListener("click", () => {
-      document.getElementById("card-container").innerHTML=""
-      document.getElementById("card-container").innerHTML=`<div class="flex justify-center items-center min-h-[30vh]"> 
+      document.getElementById("card-container").innerHTML = "";
+      document.getElementById(
+        "card-container"
+      ).innerHTML = `<div class="flex justify-center items-center min-h-[30vh]"> 
       
       
       <div role="status">
@@ -25,68 +29,79 @@ const loadCategory = (data) => {
     </svg>
     <span class="sr-only">Loading...</span>
 </div>
-      </div>`
-    
-      displayCategoryData(item.category_id,item.category_name);
+      </div>`;
+
+      displayCategoryData(item.category_id, item.category_name);
     });
     category.appendChild(span);
   });
 };
 
-// display category data
-const displayCategoryData = (id,name) => {
+// fetch and function of display category data
+const displayCategoryData = (id, name) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => itemsResult(data,name));
-
-  
+    .then((data) => itemsResult(data, name));
 };
 
-const itemsResult =(items,name)=>{
-   document.getElementById("items-result").innerHTML=""
+// function of itemResult
+const itemsResult = (items, name) => {
+  document.getElementById("items-result").innerHTML = "";
   const itemResult = document.getElementById("items-result");
- 
-  itemResult.innerHTML=`${items?.data?.length} items found for category ${name}`
-  displayCategoryCard(items.data)
-}
 
+  itemResult.innerHTML = `${items?.data?.length} items found for category ${name}`;
+  displayCategoryCard(items.data);
+};
 
+// function of displayCategoryCard
+const displayCategoryCard = (data) => {
+  document.getElementById("card-container").innerHTML = "";
+  const cardContainer = document.getElementById("card-container");
+  if (data.length == 0) {
+    cardContainer.innerHTML = `<h1 class="text-red-500 font-bold text-xl text-center my-10">No news found </h1>`;
+    return;
+  }
+  // map of data
+  data.map((card) => {
+    const div = document.createElement("div");
 
-//
-const displayCategoryCard=(data)=>{
- document.getElementById("card-container").innerHTML=""
- const cardContainer=document.getElementById("card-container")
- if(data.length==0){
-  cardContainer.innerHTML=`<h1 class="text-red-500 font-bold text-xl text-center my-10">No news found </h1>`
-  return
- }
- 
-
- 
- data.map(card=>{
-  
-         const div=document.createElement('div')
-        
-         div.innerHTML=`
+    div.innerHTML = `
                   <div class="card mb-[25px] lg:card-side p-5 bg-[#FFFFFF]  shadow-xl">
-              <img class="h-[300px] mx-auto lg:mx-0 w-[244px] object-cover mr-[40px]" src=${card.image_url} alt="Album">
+              <img class="h-[300px] mx-auto lg:mx-0 w-[244px] object-cover mr-[40px]" src=${
+                card.image_url
+              } alt="Album">
             <div class="card-body">
-              <h2 class="card-title text-[#121221] font-bold text-[24px]">${card.title}</h2>
-              <p class="text-[16px] text-ellipsis  my-4 text-[#949494] whitespace-pre-line">${card.details.slice(0,500)}${card.details.length>500?"...":""}</p>
+              <h2 class="card-title text-[#121221] font-bold text-[24px]">${
+                card.title
+              }</h2>
+              <p class="text-[16px] text-ellipsis  my-4 text-[#949494] whitespace-pre-line">${card.details.slice(
+                0,
+                500
+              )}${card.details.length > 500 ? "..." : ""}</p>
               
             <div class="footerWraper flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
-                <img class="h-[40px] w-[40px] rounded-full mr-[10px]" src=${card?.author?.img} /> 
+                <img class="h-[40px] w-[40px] rounded-full mr-[10px]" src=${
+                  card?.author?.img
+                } /> 
                 <div> 
-                      <h1 class="text-[#2B2C34] text-[16px]">${card?.author?.name}</h1>
-                      <h1 class="text-[14px] text-[#718797]">${new Date(card?.author?.published_date).toDateString()}</h1>
+                      <h1 class="text-[#2B2C34] text-[16px]">${
+                        card?.author?.name
+                      }</h1>
+                      <h1 class="text-[14px] text-[#718797]">${new Date(
+                        card?.author?.published_date
+                      ).toDateString()}</h1>
                 </div>
                 </div>
 
-                 <div class="text-[#515151] text-[18px] font-bold flex items-center"> <span><img class="h-[24px] mr-[12px] w-[24px]" src="./img/eye-icon.png" /></span><span class="text-[#515151] text-[18px] font-bold">${card.total_view}</span> </div>
+                 <div class="text-[#515151] text-[18px] font-bold flex items-center"> <span><img class="h-[24px] mr-[12px] w-[24px]" src="./img/eye-icon.png" /></span><span class="text-[#515151] text-[18px] font-bold">${
+                   card.total_view
+                 }</span> </div>
                  <div >
-                 <label onClick="openModal('${card?._id}')" for="my-modal-6" class="mt-3 lg:mt-0 btn   px-5">
+                 <label onClick="openModal('${
+                   card?._id
+                 }')" for="my-modal-6" class="mt-3 lg:mt-0 btn   px-5">
                  <img  class="mr-[14px]" src="./img/right-arrow.png" />
                  </label>
                  
@@ -96,45 +111,49 @@ const displayCategoryCard=(data)=>{
             </div> 
           </div>
          
-         `
-         
-         
-         cardContainer.appendChild(div)
-
- })
-}
-
-const openModal=(news_id)=>{
-const url=`https://openapi.programming-hero.com/api/news/${news_id}`
-fetch(url)
-.then(res=>res.json())
-.then(data=>loadModalData(data?.data[0]))
-
-}
-
-
-const loadModalData=(news)=>{
-  const {category_id,details,image_url,thumbnail_url,title,total_view}=news
-  const {name,published_date,img}=news.author
-  const {is_trending}=news.others_info
-  if(!name){
-    console.log("something")
-    const newsContainer=document.getElementById("modal-container").innerHTML=`
+         `;
+    cardContainer.appendChild(div);
+  });
+};
+//  function of data fetch for modal
+const openModal = (news_id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => loadModalData(data?.data[0]));
+};
+//  function of loadModalData
+const loadModalData = (news) => {
+  const { category_id, details, image_url, thumbnail_url, title, total_view } =
+    news;
+  const { name, published_date, img } = news.author;
+  const { is_trending } = news.others_info;
+  if (!name) {
+    console.log("something");
+    const newsContainer = (document.getElementById(
+      "modal-container"
+    ).innerHTML = `
     <h1 class="text-red-600 text-xl font-bold"> No Data Available</h1>
-    `
+    `);
     return;
   }
-  const newsContainer=document.getElementById("modal-container").innerHTML=`
+  const newsContainer = (document.getElementById(
+    "modal-container"
+  ).innerHTML = `
   <div class="flex items-center justify-between">
 
   <div> 
   <h1 class="text-xs font-bold text-black">Category Id:${category_id} </h1>
-  <h1 class="text-xs text-gray-600 ">Trending:${is_trending?"yes":"no"} </h1>
+  <h1 class="text-xs text-gray-600 ">Trending:${
+    is_trending ? "yes" : "no"
+  } </h1>
   </div>
   
   <div>
   <h1 class="text-xs font-bold text-black">Author:${name} </h1>
-  <h1 class="text-xs text-gray-600">Published Date:${new Date(published_date).toDateString()} </h1>
+  <h1 class="text-xs text-gray-600">Published Date:${new Date(
+    published_date
+  ).toDateString()} </h1>
   </div>
   <img class="h-[24px] w-[24px] rounded-full" src="${img}" />
   
@@ -142,14 +161,12 @@ const loadModalData=(news)=>{
   <img class="h-[35vh] my-3 w-[100%] object-cover mx-auto" src="${thumbnail_url}" />
   <h1 class="text-gray-500"> ${details}</h1>
 
-
   <div class="modal-action">
   <label for="my-modal-6" class="btn">Close!</label>
 </div>
   
   
-  `
-}
+  `);
+};
 
-
-
+//  END Section
