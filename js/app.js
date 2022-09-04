@@ -133,8 +133,15 @@ const loadModalData = (news) => {
     const newsContainer = (document.getElementById(
       "modal-container"
     ).innerHTML = `
-    <h1 class="text-red-600 text-xl font-bold"> No Data Available</h1>
-    `);
+    <h1 class="text-red-600 text-xl font-bold text-center py-3"> No Data Available</h1>
+      <div class="text-center">
+      <a
+      class="text-[#5D5FEF] rounded-[4px] lg:p-[8px] lg:px-6 font-bold text-xl hover:text-[green]"
+      href="/index.html"
+      ><i class="fa-solid fa-arrow-left"></i> Back</a
+    ></div>
+    `
+    );
     return;
   }
   const newsContainer = (document.getElementById(
